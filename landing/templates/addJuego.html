@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/inicio_sesion.css' %}">
+  <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+  <title>Iniciar Sesion</title>
+</head>
+<body>
+  
+    <!-- {{ form.as_p }} -->
+    <!-- <input type="text" placeholder="Usuario" name="{{ form.username.name }}">
+    <input type="password" placeholder="contraseña" name="{{ form.password1.name }}">
+    <input type="password" placeholder="Confirma contraseña" name="{{ form.password2.name }}">
+    <input type="text" placeholder="Correo" name="correo"> -->
+
+      {% if error %}
+      <div class="alerta">
+        <div class="error"><h5>{{error}}</h5></div>
+      </div>
+      {% endif %}
+
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+        <div class="bton">
+          <a href="/perfil/{{ user.username }}"><button class="flecha"><i class="fa-solid fa-arrow-left"></i></button></i></a>
+        </div>
+        <h3 class="active">Añade tu Juego</h3>
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="{% static 'images/profile-header.jpg' %}" id="icon" alt="User Icon" />
+        </div>
+    
+        <!-- Login Form -->
+        <form action="/addJuego/" method="POST">{% csrf_token %}
+          <input type="text" placeholder="Nombre de Juego" name="{{ form.nombreJuego.name }}">
+          <input type="text" placeholder="Desarrollador" name="{{ form.desarrollador.name }}">
+          <input type="text" placeholder="Estreno" name="{{ form.estreno.name }}">
+          <input type="text" placeholder="Genero" name="{{ form.genero.name }}">
+          <input type="text" value="{{ user.username }}" name="usuario" readonly="True">
+
+          <input type="submit" class="fadeIn fourth" value="Enviar">
+        </form>
+    
+      </div>
+    </div>    
+
+  </form>
+  
+</body>
+</html>

@@ -1,0 +1,124 @@
+{% extends 'plantilla.html' %}
+{% load static %}
+
+
+{% block titulo %}
+  <title>Perfil</title>
+{% endblock titulo %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+{% endblock css %}
+
+{% block alerta %}
+<div class="alerta">
+  <div class="exito"><h5>{{exito}}</h5></div>
+</div>
+{% endblock alerta %}
+
+{% block contendMenu %}
+  <li><a href="/">Inicio</a></li>
+  <li><a href="www.twitch.tv">Twitch</a></li>
+
+  {% if user.is_authenticated %}
+    <li><a href="/perfil/{{usuario}}" class="active">Perfil {{ usuario }} <img src="../static/images/profile-header.jpg" alt=""></a></li>   
+  {% else %}
+    <li><a href="inicio_sesion/">Iniciar Sesion <img src="../static/images/profile-header.jpg" alt=""></a></li>
+  {% endif %}
+  
+{% endblock contendMenu %}
+
+
+{% block contenedor %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-content">
+
+        <!-- ***** Banner Start ***** -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="main-profile ">
+              <div class="row">
+                <div class="col-lg-4">
+                  <img src="../static/images/profile.jpg" alt="" style="border-radius: 23px;">
+                </div>
+                <div class="col-lg-4 align-self-center">
+                  <div class="main-info header-text">
+                    
+                    {% if user.is_authenticated %} 
+                      <span id="greenBtn">Online</span>
+                    {% else %}
+                      <span>Offline</span>
+                    {% endif %}
+
+
+                    <h4>{{ usuario }}</h4>
+                    <p>Añade tus juegos favoritos que ya hayas completado.</p>
+                    <div class="main-border-button">
+                      <a href="/addJuego/">Añade un nuevo juego</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- ----------------------- -->
+                <div class="col-lg-4 align-self-center">
+                  <ul>
+                    <li>Juegos inscritos<span>{{ contador }}</span></li>
+                    <li>Amigos en linea<span>---</span></li>
+                  </ul>
+                </div>
+              </div>
+              <!--  -->
+            </div>
+          </div>
+        </div>
+        <!-- ***** Banner End ***** -->
+
+        <!-- ***** Gaming Library Start ***** -->
+        <div class="gaming-library profile-library">
+          <div class="col-lg-12">
+            <div class="heading-section">
+              <h4><em>Tu libreria</em> de juegos</h4>
+            </div>
+
+            <!-- ---------------- -->
+            {% for juego in juegos %}
+            <div class="item">
+              <ul>
+                <li><img src="../static/images/game-01.jpg" alt="" class="templatemo-item"></li>
+                <li>
+                  <h4>{{ juego.nombreJuego }}</h4><span>{{ juego.desarrollador }}</span>
+                </li>
+                <li>
+                  <h4>Fecha de estreno</h4><span>{{ juego.estreno }}</span>
+                </li>
+                <li>
+                  <h4>Género</h4><span>{{ juego.genero }}</span>
+                </li>
+                <li>
+                  <h4>Estado</h4><span>{{ juego.estado }}</span>
+                </li>
+
+                {% if juego.estado == 'Completado' %}
+                <button class="main-button-desactivate" disabled>
+                  <a href="#">Completado</a>
+                </button>
+                {% else %}
+                  <button class="main-button">
+                    <a href="/completar/{{ juego.id }}/">Completar</a>
+                  </button>
+                {% endif %}
+
+              </ul>
+            </div>
+            {% endfor %}            
+            <!-- ---------------- -->
+
+          </div>
+        </div>
+        <!-- ***** Gaming Library End ***** -->
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock contenedor %}

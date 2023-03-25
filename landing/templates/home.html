@@ -1,0 +1,82 @@
+{% extends 'plantilla.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Home</title>
+{% endblock titulo %}
+
+{% block contendMenu %}
+<li><a href="/" class="active">Inicio</a></li>
+<li><a href="www.twitch.tv">Twitch</a></li>
+  {% if user.is_authenticated %}
+  <li><a href="#" class="active">Perfil {{ user }} <img src="../static/images/profile-header.jpg" alt=""></a></li>
+  {% else %}
+    <li><a href="inicio_sesion/">Iniciar Sesion <img src="../static/images/profile-header.jpg" alt=""></a></li>
+  {% endif %}
+{% endblock contendMenu %}
+
+<!-- ---------------------------------------------------------------------------------- -->
+{% block contenedor %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-content">
+
+        <!-- ***** Banner Start ***** -->
+        <div class="main-banner">
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="header-text">
+                <h6>Bienvenido</h6>
+                <h4><em>Explora</em> juegos populares aqui</h4>
+                <div class="main-button">
+                  <a href="inicio_sesion/">Inicia Sesion</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ***** Banner End ***** -->
+
+        <!-- ***** Most Popular Start ***** -->
+        <div class="most-popular">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="heading-section">
+                <h4><em>Más </em>Populares</h4>
+              </div>
+              <div class="row">
+
+              {% for juego in juegos %}
+              <div class="col-lg-3 col-sm-6">
+                <div class="item">
+                  <img src="{{ juego.imagen.url }}" alt="{{ juego.imagen.url }}">
+                  <h4>{{ juego.nombreJuego}}<br><span>{{ juego.tipo }}</span></h4>
+                  <ul>
+                    <li><i class="fa fa-star"></i> {{ juego.rating }}</li>
+                    <li><i class="fa fa-download"></i> {{ juego.descargas }}M</li>
+                  </ul>
+                </div>
+              </div>
+              {% endfor %}
+
+              <!-- ---------- -->
+                <!-- ------ -->
+                <div class="col-lg-12">
+                  <div class="main-button">
+                    <a href="browse.html">Descubrir Populares</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ***** Most Popular End ***** -->
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock contenedor %}
+<!-- ---------------------------------------------------------------------------------- -->
