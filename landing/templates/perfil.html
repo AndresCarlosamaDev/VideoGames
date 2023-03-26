@@ -18,7 +18,7 @@
 
 {% block contendMenu %}
   <li><a href="/">Inicio</a></li>
-  <li><a href="www.twitch.tv">Twitch</a></li>
+  <li><a href="twitch/">Twitch</a></li>
 
   {% if user.is_authenticated %}
     <li><a href="/perfil/{{usuario}}" class="active">Perfil {{ usuario }} <img src="../static/images/profile-header.jpg" alt=""></a></li>   

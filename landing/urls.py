@@ -9,5 +9,6 @@ urlpatterns = [
     path('reingresar/', views.reingresar_Sesion, name='reingresar_sesion'),
     path('addJuego/', views.addJuego, name='addJuego'),
     path('completar/<int:id>/', views.completar, name='completar'),
-    
+    path('twitch/', views.twitch, name='twitch'),
+    path('perfil/twitch/', views.twitch, name='twitch'),
 ]

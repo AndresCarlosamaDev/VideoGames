@@ -103,3 +103,10 @@ def completar(request,id):
     nuevoEstado.save()
     usuario = request.user
     return redirect("/perfil/" + str(usuario))
+
+# ----------------
+# TWITCH
+# ----------------
+
+def twitch(request):
+    return redirect('https://www.twitch.tv/')
