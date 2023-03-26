@@ -96,7 +96,7 @@ DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs
                 # 'postgres://videogames_6ozi_user:j99d8pxlP7YeufwDdUopCynsXHN88zkW@dpg-cgfm0l64daddcg0i264g-a/videogames_6ozi'
-        default='postgres://videogames_6ozi_user:j99d8pxlP7YeufwDdUopCynsXHN88zkW@dpg-cgfm0l64daddcg0i264g-a:5432/videogames_6ozi',
+        default='postgres://videogames_6ozi_user:j99d8pxlP7YeufwDdUopCynsXHN88zkW@dpg-cgfm0l64daddcg0i264g-a.oregon-postgres.render.com/videogames_6ozi',
         conn_max_age=600
         )}
 
