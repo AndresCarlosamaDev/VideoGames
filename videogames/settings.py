@@ -94,12 +94,12 @@ WSGI_APPLICATION = 'videogames.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'videogames_tktx',
-        'USER': 'videogames_tktx_user',
-        'PASSWORD': 'SPp2LUElg4WRLZdZxcZ04ErazNbDreko',
-        'HOST': 'dpg-cgg76ko2qv28tc2ejjd0-a',
-        'PORT': 5432
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'TInKwpnsYs4Nf2eTFLb9',
+        'HOST': 'containers-us-west-150.railway.app',
+        'PORT': 7175
     }
 }
 
