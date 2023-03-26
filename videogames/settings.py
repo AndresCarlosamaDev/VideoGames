@@ -93,12 +93,23 @@ WSGI_APPLICATION = 'videogames.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs
-                # 'postgres://videogames_6ozi_user:j99d8pxlP7YeufwDdUopCynsXHN88zkW@dpg-cgfm0l64daddcg0i264g-a/videogames_6ozi'
-        default='postgres://videogames_6ozi_user:j99d8pxlP7YeufwDdUopCynsXHN88zkW@dpg-cgfm0l64daddcg0i264g-a.oregon-postgres.render.com/videogames_6ozi',
-        conn_max_age=600
-        )}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'videogames_tktx',
+        'USER': 'videogames_tktx_user',
+        'PASSWORD': 'SPp2LUElg4WRLZdZxcZ04ErazNbDreko',
+        'HOST': 'dpg-cgg76ko2qv28tc2ejjd0-a',
+        'PORT': 5432
+    }
+}
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # Feel free to alter this value to suit your needs
+#                 # 'postgres://videogames_6ozi_user:j99d8pxlP7YeufwDdUopCynsXHN88zkW@dpg-cgfm0l64daddcg0i264g-a/videogames_6ozi'
+#         default='postgres://videogames_6ozi_user:j99d8pxlP7YeufwDdUopCynsXHN88zkW@dpg-cgfm0l64daddcg0i264g-a.oregon-postgres.render.com/videogames_6ozi',
+#         conn_max_age=600
+#         )}
 
 
 # Password validation
