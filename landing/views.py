@@ -78,7 +78,7 @@ def reingresar_Sesion(request):
 # --------------------------
 def addJuego(request):
     if request.method == 'GET':
-        return render(request, 'addjuego.html',{
+        return render(request, 'addJuego.html',{
             'form' : JuegoJugadorForm
     })
     else:
