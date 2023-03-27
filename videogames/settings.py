@@ -81,27 +81,27 @@ WSGI_APPLICATION = 'videogames.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'videogames_check',
-        'HOST': 'localhost',
-        'PASSWORD': 'admin',
-        'USER': 'root',
-        'PORT': 3306
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'railway',
+#         'NAME': 'videogames_check',
+#         'HOST': 'localhost',
+#         'PASSWORD': 'admin',
 #         'USER': 'root',
-#         'PASSWORD': 'BisF9c0GOR1J6GthP9Zt',
-#         'HOST': 'containers-us-west-54.railway.app',
-#         'PORT': '7630'
+#         'PORT': 3306
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'BisF9c0GOR1J6GthP9Zt',
+        'HOST': 'containers-us-west-54.railway.app',
+        'PORT': '7630'
+    }
+}
 
 # DATABASES = {
 #     'default': dj_database_url.config(
