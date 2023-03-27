@@ -4,6 +4,7 @@ from .models import JuegoPopular,JuegoJugador
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from .form import JuegoJugadorForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -36,7 +37,7 @@ def inicio_sesion(request):
             'form': UserCreationForm,
             'error': "Contraseñas NO coninciden"
             })
-
+@login_required
 def perfil(request, usuario):
     juegos = JuegoJugador.objects.filter(user=request.user)
     
@@ -52,7 +53,7 @@ def perfil(request, usuario):
         'juegos': juegos,
         'contador': contador
         })
-
+@login_required
 def cerrar_sesion(request):
     logout(request)
     return redirect('/')
@@ -76,6 +77,7 @@ def reingresar_Sesion(request):
 # --------------------------
 # JUEGO JUGADOR
 # --------------------------
+@login_required
 def addJuego(request):
     if request.method == 'GET':
         return render(request, 'addJuego.html',{
@@ -95,7 +97,7 @@ def addJuego(request):
             'form' : JuegoJugadorForm,
             'error': 'Valores NO validos'
             })
-
+@login_required
 def completar(request,id):
     #print(id)
     nuevoEstado = JuegoJugador.objects.get(id=id)
